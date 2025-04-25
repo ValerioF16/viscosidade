@@ -4,5 +4,9 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base:"/viscosidade"
+  base:"/viscosidade",
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets' // isso deve corresponder ao caminho dos erros
+  }
 })
