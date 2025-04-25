@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 
 
 async function searchOilsByViscosity(viscosity, temperature = "40°C", marca = "") {
-  const response = await fetch("http://localhost:3001/api/viscosidade", {
+  const apiUrl = import.meta.env.VITE_API_URL
+  const response = await fetch(`${apiUrl}/api/viscosidade`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
