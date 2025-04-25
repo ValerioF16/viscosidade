@@ -1,0 +1,156 @@
+import { useState } from 'react';
+import OpenAI from 'openai';
+import styleV from "./viscosidadeStyle.module.css";
+import { Link } from 'react-router-dom';
+
+
+async function searchOilsByViscosity(viscosity, temperature = "40°C", marca = "") {
+  const response = await fetch("http://localhost:3001/api/viscosidade", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ viscosity, temperature, marca  }),
+  });
+
+  if (!response.ok) {
+    throw new Error("Erro na resposta da API");
+  }
+
+  const data = await response.json();
+  return data;
+}
+
+
+function ViscoCalc() {
+  const  [marca, setMarca] = useState("")
+  const [t, setT] = useState("");
+  const [n, setN] = useState("");
+  const [v, setV] = useState(null);
+  const [oilData, setOilData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleCalculate = async () => {
+    
+    const tNum = parseFloat(t);
+    const nNum = parseFloat(n);
+
+    if (isNaN(tNum) || isNaN(nNum)) {
+      alert('Por favor, insira valores numéricos para todos os parâmetros.');
+      return;
+    }
+
+    if (!Number.isInteger(nNum) || nNum < 1 || nNum > 5) {
+      alert("Digite um número de orifício válido (1 a 5)");
+      return;
+    }
+    
+    let viscosity;
+    if (nNum === 1 && tNum >= 55 && tNum <= 100) {
+      viscosity = 0.49 * (tNum - 35);
+    } else if (nNum === 2 && tNum >= 40 && tNum <= 100) {
+      viscosity = 1.44 * (tNum - 18);
+    } else if (nNum === 3 && tNum >= 20 && tNum <= 100) {
+      viscosity = 2.31 * (tNum - 6.58);
+    } else if (nNum === 4 && tNum >= 20 && tNum <= 100) {
+      viscosity = 3.85 * (tNum - 4.49);
+    } else if (nNum === 5 && tNum >= 20 && tNum <= 100) {
+      viscosity = 0.49 * (tNum - 35);
+    } else {
+      alert("Tempo de escoamento fora do intervalo para o orifício selecionado.");
+      return;
+    }
+
+    setV(viscosity);
+    setLoading(true);
+    setError(null);
+
+    try {
+      const data = await searchOilsByViscosity(viscosity.toFixed(2), marca);
+      setOilData(data);
+    } catch (err) {
+      setError("Erro ao buscar dados da API.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleClear = () => {
+    setL('');
+    setT('');
+    setN('');
+    setV(null);
+    setOilData(null);
+    setError(null);
+  };
+
+  return (
+    <div className={styleV.AppPotencia}>
+      <div className={styleV.container}>
+        <header>
+          <h1>Cálculo de Viscosidade</h1>
+        </header>
+        <section className={styleV.inputsP}>
+          <h2>Parâmetros de Entrada</h2>
+          <div>
+            <label>
+              Oleo lubrificante (marca) <span title="Selecione o nome do oleo lubrificante">?</span>
+            </label>
+            <input
+              type="text"
+              value={marca}
+              onChange={(e) => setMarca(e.target.value)}
+              step="1"
+            />
+          </div>
+          <div>
+            <label>
+              Número do orifício (1-5) <span title="Selecione o número do orifício">?</span>
+            </label>
+            <input
+              type="number"
+              value={n}
+              onChange={(e) => setN(e.target.value)}
+              step="1"
+            />
+          </div>
+          <div>
+            <label>
+              Tempo de escoamento (segundos) <span title="Insira o tempo de escoamento em segundos">?</span>
+            </label>
+            <input
+              type="number"
+              value={t}
+              onChange={(e) => setT(e.target.value)}
+              step="any"
+            />
+          </div>
+        </section>
+        <section className={styleV.buttonsP}>
+          <button className={styleV.btnP1} onClick={handleCalculate}>Calcular</button>
+          <button className={styleV.btnP2} onClick={handleClear}>Limpar</button>
+          <Link to={"/viscosidade"}>
+            <button className={styleV.btnP2}>Voltar</button>
+          </Link>
+        </section>
+        <section className={styleV.result}>
+          <h2>Resultado:</h2>
+          <p>
+            Viscosidade = {v ? `${v.toFixed(2)} cSt` : ''}
+          </p>
+          {loading && <p>Carregando dados da API...</p>}
+          {error && <p>{error}</p>}
+          {oilData && (
+            <div>
+              <h3>Dados dos Óleos:</h3>
+              <pre>{oilData}</pre>
+            </div>
+          )}
+        </section>
+      </div>
+    </div>
+  );
+}
+
+export default ViscoCalc;

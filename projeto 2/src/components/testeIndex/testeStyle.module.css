@@ -1,0 +1,190 @@
+:global(*) {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :global(a) {
+    text-decoration: none;
+    color: var(--white);
+  }
+  
+  :global(::-webkit-scrollbar) {
+    width: 4px;
+    transition: all 0.4s ease;
+  }
+  
+  :global(::-webkit-scrollbar-thumb) {
+    background: var(--blue);
+    border-radius: 4px;
+  }
+  
+  :global(::-webkit-scrollbar-track) {
+    background: var(--black);
+    border-radius: 4px;
+  }
+  
+  :global(input::-webkit-outer-spin-button),
+  :global(input::-webkit-inner-spin-button) {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  :global(:root) {
+    --blue: rgb(0, 119, 182);
+    --black: black;
+    --black-cinza: #111111e6;
+    --white: #fafafa;
+    --gray: #c9c9c9;
+    --gray--cinza: #333;
+  }
+  
+  :global(body) {
+    font-family: "Roboto", sans-serif;
+    background-color: var(--black-cinza);
+    color: var(--white);
+    font-size: 1rem;
+    padding: 0 1rem;
+    width: 100%; /*PODE SER TIRADA*/
+    min-height: 100vh; /*PODE SER TIRADA MAS PESQUISE PARA QUE SERVE*/
+    line-height: 1.4; /*PODE SER TIRADA MAS NAO SEI PARA QUE SERVE*/
+    scroll-behavior: smooth; /*PODE SER TIRADA MAS PESQUISE PARA QUE SERVE*/
+    overflow-x: hidden; /*PODE SER TIRADA MAS PESQUISE PARA QUE SERVE*/
+  }
+
+
+.cabecalho{
+    background-color: var(--gray--cinza);
+    display: flex;
+    justify-content: center;
+    padding: 1.25rem 0;
+    width: 100%;
+    height: 5rem;
+
+}
+
+.imgCabecalho{
+    height: 2rem;
+}
+
+.containerPai{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ 
+    gap : 2rem;
+    flex-wrap: wrap;
+}
+.conteudoTopo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+
+}
+
+.imagEconteudo{
+    display: flex; 
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.conteudo{
+    width: 37.5rem;
+    background-color: var(--gray--cinza);
+}
+
+.imgHome{
+    height: 25rem;
+}
+
+.estiloBotao {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin: 10px;
+    background-color: var(--blue);
+    color: var(--white);
+    font-size: 1rem;
+}
+.textoTopo{
+    color: var(--blue);
+}
+
+@media (max-width: 768px) {
+    /* Cabeçalho */
+    .cabecalho {
+      padding: 0.75rem 0;
+      height: auto;
+    }
+  
+    .imgCabecalho {
+      width: 50px; /* Logo bem pequeno */
+      height: auto; /* Mantém a proporção */
+    }
+  
+    /* Container Pai */
+    .containerPai {
+      gap: 1rem;
+      padding: 1rem;
+    }
+  
+    /* Conteúdo Topo */
+    .conteudoTopo {
+      text-align: center;
+    }
+  
+    .conteudoTopo h1 {
+      font-size: 1.5rem;
+    }
+  
+    .conteudoTopo span {
+      font-size: 1rem;
+    }
+  
+    /* Bloco de Imagem e Conteúdo */
+    .imagEconteudo {
+      flex-direction: column-reverse;
+      align-items: center;
+      padding: 1rem;
+      gap: 1rem;
+    }
+  
+    /* Conteúdo */
+    .conteudo {
+      width: 100%;
+      max-width: 300px; /* Alinha largura com a imagem */
+      padding: 1rem;
+      border-radius: 10px;
+    }
+  
+    .conteudo h1 {
+      font-size: 1.25rem;
+    }
+  
+    .conteudo p {
+      font-size: 0.9rem;
+    }
+  
+    /* Imagem da Página Inicial */
+    .imgHome {
+      width: 100%;
+      max-width: 300px; /* Mesma largura máxima do texto */
+      height: auto;
+    }
+  
+    /* Botão */
+    .botaoConteudo {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .estiloBotao {
+      padding: 8px;
+      font-size: 0.9rem;
+    }
+  }
