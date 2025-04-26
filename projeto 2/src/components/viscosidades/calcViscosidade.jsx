@@ -28,6 +28,9 @@ function ViscoCalc() {
   const [t, setT] = useState("");
   const [n, setN] = useState("");
   const [v, setV] = useState(null);
+  const [opcao, setOpcao] = useState("")
+  const [valor, setValor] = useState ("")
+  const [resultadoValor, setResultadoValor] = useState("")
   const [oilData, setOilData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -64,6 +67,17 @@ function ViscoCalc() {
     }
 
     setV(viscosity);
+    if (opcao === "sim") {
+      if(!isNaN(nValor)) {
+        const calcPoise = viscosidade * nValor
+        setResultadoValor(calcPoise)
+
+      } else {
+        alert("Digite um valor exato para a viscosidade")
+        return
+      }
+
+    }
     setLoading(true);
     setError(null);
 
@@ -81,6 +95,9 @@ function ViscoCalc() {
     setMarca('');
     setT('');
     setN('');
+    setOpcao('')
+    setValor('')
+    setResultadoValor('')
     setV(null);
     setOilData(null);
     setError(null);
@@ -94,6 +111,30 @@ function ViscoCalc() {
         </header>
         <section className={styleV.inputsP}>
           <h2>Parâmetros de Entrada</h2>
+          <div>
+            <label >
+              Você deseja calcular densidade dinâmica ? (poise) 
+              <select  id="acao" value = {opcao} onChange={(e) => setOpcao(e.target.value)}
+
+              
+              > <option value="">--Selecione--</option>
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+              </select>
+              { opcao === "sim" && (
+                <div>
+                  <label >
+                    Densidade do oleo <span title="Insira a densidade do oleo">?</span>
+                    <input type="number" 
+                    value={valor}
+                    onChange={(e)=> setValor(e.target.value)}
+                    step="any"
+                    />
+                  </label>
+                </div> )
+              } 
+            </label>
+          </div>
           <div>
             <label>
               Oleo lubrificante (marca) <span title="Selecione o nome do oleo lubrificante">?</span>
@@ -141,6 +182,12 @@ function ViscoCalc() {
           <p>
             Viscosidade = {v ? `${v.toFixed(2)} cSt` : ''}
           </p>
+          { resultadoValor !== null && (
+            <p>
+              Viscosidade dinâmica = {resultadoValor ? `${resultadoValor.toFixed(2)} (poise) ` : ''} 
+            </p> )
+          }
+          
           {loading && <p>Carregando dados da API...</p>}
           {error && <p>{error}</p>}
           {oilData && (
