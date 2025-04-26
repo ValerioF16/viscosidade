@@ -39,6 +39,7 @@ function ViscoCalc() {
     
     const tNum = parseFloat(t);
     const nNum = parseFloat(n);
+    const nValor = parseFloat(valor)
 
     if (isNaN(tNum) || isNaN(nNum)) {
       alert('Por favor, insira valores numéricos para todos os parâmetros.');
@@ -187,7 +188,7 @@ function ViscoCalc() {
               Viscosidade dinâmica = {resultadoValor ? `${resultadoValor.toFixed(2)} (poise) ` : ''} 
             </p> )
           }
-          
+
           {loading && <p>Carregando dados da API...</p>}
           {error && <p>{error}</p>}
           {oilData && (
