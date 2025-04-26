@@ -78,7 +78,7 @@ function ViscoCalc() {
   };
 
   const handleClear = () => {
-    setL('');
+    setMarca('');
     setT('');
     setN('');
     setV(null);
@@ -131,7 +131,7 @@ function ViscoCalc() {
         <section className={styleV.buttonsP}>
           <button className={styleV.btnP1} onClick={handleCalculate}>Calcular</button>
           <button className={styleV.btnP2} onClick={handleClear}>Limpar</button>
-          
+
           <Link to={"/"}>
             <button className={styleV.btnP2}>Voltar</button>
           </Link>
