@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     element: <PotenciaApp />
   },
   {
-    path: "/viscosidade/viscosidades",
+    path: "/viscosidade",
     element: <ViscoCalc />
   }
 

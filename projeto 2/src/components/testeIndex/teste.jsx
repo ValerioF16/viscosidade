@@ -40,12 +40,12 @@ function Teste() {
                        <br />
                        <br />
                        <div className={styleT.botaoConteudo}>
-                       <Link to={"/viscosidade/potencia"} >
+                       <Link to={"/potencia"} >
                         <button className={styleT.estiloBotao}>
                             Calcular Potencia
                         </button>
                         </Link>
-                        <Link to={"/viscosidade/viscosidades"} >
+                        <Link to={"/viscosidade"} >
                         <button className={styleT.estiloBotao}>
                             Viscosidade
                         </button>

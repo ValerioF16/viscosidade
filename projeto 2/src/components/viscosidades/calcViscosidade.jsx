@@ -131,7 +131,7 @@ function ViscoCalc() {
         <section className={styleV.buttonsP}>
           <button className={styleV.btnP1} onClick={handleCalculate}>Calcular</button>
           <button className={styleV.btnP2} onClick={handleClear}>Limpar</button>
-          <Link to={"/viscosidade"}>
+          <Link to={"/"}>
             <button className={styleV.btnP2}>Voltar</button>
           </Link>
         </section>

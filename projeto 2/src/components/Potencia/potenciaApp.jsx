@@ -170,7 +170,7 @@ function PotenciaApp() {
         <section className={styleP.buttonsP}>
           <button className= {styleP.btnP1} onClick={handleCalculate}>Calcular</button>
           <button className= {styleP.btnP2} onClick={handleClear}>Limpar</button>
-          <Link to={"/viscosidade"} >
+          <Link to={"/"} >
                 <button className= {styleP.btnP2} >
                   Voltar
                 </button>
