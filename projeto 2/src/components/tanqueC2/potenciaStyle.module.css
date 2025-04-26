@@ -1,0 +1,107 @@
+.AppPotencia {
+  background-color: rgba(17, 17, 17, 0.9);
+  color: white;
+  padding: 0px;
+  font-family: Arial, sans-serif;
+  min-height: 100vh; 
+  
+  
+}
+
+
+
+
+.container {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(17, 17, 17, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+  margin: 0 auto; /*  NORMAL É 0 AUTO*/
+}
+
+header {
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.inputsP {
+  margin-top: 20px;
+}
+
+.inputsP h2 {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+}
+
+.inputsP div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+label span {
+  cursor: help;
+  color: #aaa;
+  margin-left: 5px;
+}
+
+input {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 8px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.buttonsP {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+
+
+.btnP1 {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: blue;
+  color: white;
+}
+
+.btnP2  {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #555;
+  color: white;
+}
+
+.result {
+  margin-top: 20px;
+}
+
+.result h2 {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+}
+
+.result p {
+  margin: 5px 0;
+}
