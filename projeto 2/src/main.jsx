@@ -13,11 +13,11 @@ import ViscoCalc from "./components/viscosidades/calcViscosidade.jsx"
 
 const router = createBrowserRouter([
   {
-    path: "/viscosidade",
+    path: "/",
     element: <Teste/>
   },
   {
-    path: "/viscosidade/potencia",
+    path: "/potencia",
     element: <PotenciaApp />
   },
   {
