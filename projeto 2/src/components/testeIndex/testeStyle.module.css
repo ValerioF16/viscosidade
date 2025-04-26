@@ -94,11 +94,11 @@
 
 .conteudo{
     width: 37.5rem;
-    background-color: var(--gray--cinza);
+    
 }
 
 .imgHome{
-    height: 25rem;
+    height: 20.5rem;
 }
 .imgTan {
   height: 19.5rem;
@@ -118,7 +118,9 @@
 .textoTopo{
     color: var(--blue);
 }
-
+section {
+  margin-top: 20px;
+}
 @media (max-width: 768px) {
     /* Cabeçalho */
     .cabecalho {
