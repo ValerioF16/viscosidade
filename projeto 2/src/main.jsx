@@ -10,7 +10,7 @@ import PotenciaApp from './components/Potencia/potenciaApp';
 import Teste from "./components/testeIndex/teste"
 import ViscoCalc from "./components/viscosidades/calcViscosidade.jsx"
 import TemperaturaApp from "./components/tanqueC3/temperatura.jsx"
-import PresaoApp from "./components/tanqueC2/pressao"
+import PresaoApp from "./components/tanqueC2/pressao.jsx"
  
 
 const router = createBrowserRouter([
