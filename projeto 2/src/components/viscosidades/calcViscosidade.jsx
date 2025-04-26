@@ -70,7 +70,7 @@ function ViscoCalc() {
     setV(viscosity);
     if (opcao === "sim") {
       if(!isNaN(nValor)) {
-        const calcPoise = viscosidade * nValor
+        const calcPoise = viscosity * nValor
         setResultadoValor(calcPoise)
 
       } else {
