@@ -87,9 +87,9 @@
 }
 
 .imagEconteudo{
-    display: flex; 
-    align-items: flex-start;
-    gap: 2rem;
+  display: flex; 
+  align-items: center;
+  gap: 2rem;
 }
 
 .conteudo{
@@ -100,6 +100,10 @@
 .imgHome{
     height: 25rem;
 }
+.imgTan {
+  height: 19.5rem;
+  border-radius: 100px;
+ }
 
 .estiloBotao {
     cursor: pointer;
@@ -175,6 +179,13 @@
       width: 100%;
       max-width: 300px; /* Mesma largura máxima do texto */
       height: auto;
+    }
+  
+    .imgTan {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    
     }
   
     /* Botão */
