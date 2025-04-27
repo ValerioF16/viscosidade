@@ -1,7 +1,7 @@
 
 import styleT from "./testeStyle.module.css"
 import imageTeste from "./img/logo.png"
-import imageHome from "./img/image.png"
+import imageHome from "./img/visco.png"
 import imageTan from "./img/TanCO2.png"
 import { Link } from "react-router-dom";
 

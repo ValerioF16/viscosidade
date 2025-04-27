@@ -12,16 +12,26 @@ app.use(express.json());
 app.post('/api/viscosidade', async (req, res) => {
   const { viscosity, marca ,temperature = "40°C" } = req.body;
 
-  const prompt = `Busque a ficha tecnica do lubrificante ${marca} e Liste óleos lubricantes industriais com uma viscosidade cinemática de
-//    ${viscosity} cSt a ${temperature} e forneça suas especificações técnicas. Organize as informaçõos de forma estrutura uma abaixo da 
-// outra e as informações dos oleos devem conter: nome do produto, 
-// classificação APi,  
-// viscosidade cinetica, 
-// base, 
-// aplicação
-// , temperatura de operação
-//  e provedor repito 
-// Nao crie linhas muito grandes de texto se for preciso quebre no max 65 carateres por linha`;
+  const prompt = `Busque a ficha técnica (datasheet) do lubrificante ${marca} e 
+liste óleos lubrificantes industriais com uma viscosidade cinemática 
+de ${viscosity} cSt a ${temperature}°C. Se não houver correspondência 
+exata, procure óleos com viscosidades cinemáticas próximas. Para cada 
+óleo encontrado, forneça as especificações técnicas abaixo, de forma 
+estruturada, uma abaixo da outra, com até 65 caracteres por linha:
+
+- Nome do produto  
+- Classificação API  
+- Viscosidade cinemática (cSt a ${temperature}°C)  
+- Viscosidade dinâmica (se disponível)  
+- Densidade do óleo  
+- Base (mineral, sintética, etc.)  
+- Aplicações recomendadas  
+- Temperaturas de operação  
+- Provedor  
+
+Organize as informações de cada óleo de maneira clara e concisa. 
+Se a viscosidade exata não for encontrada, inclua óleos com viscosidades 
+próximas e destaque essa proximidade.`;
 
   try {
     const response = await axios.post(
