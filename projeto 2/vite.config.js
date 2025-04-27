@@ -8,5 +8,8 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets' // isso deve corresponder ao caminho dos erros
+  }, 
+  server: {
+    historyApiFallback: true,
   }
 })
