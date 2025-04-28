@@ -125,7 +125,7 @@ function ViscoCalc() {
               { opcao === "sim" && (
                 <div>
                   <label >
-                    Densidade do oleo (kg/m³) <span title="Insira a densidade do oleo">?</span>
+                    Densidade do oleo (g/cm³) <span title="Insira a densidade do oleo">?</span>
                     <input type="number" 
                     value={valor}
                     onChange={(e)=> setValor(e.target.value)}
