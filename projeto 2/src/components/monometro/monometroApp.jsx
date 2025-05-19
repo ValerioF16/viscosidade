@@ -44,7 +44,7 @@ function MonometroApp() {
     try {
       // Enviar requisição POST para o backend
       setIsloading(true)
-      const response = await fetch('http://localhost:5000/calculate', {
+      const response = await fetch('https://monometro.onrender.com/calculate', {
         method: 'POST', 
         body: formData,
       });
