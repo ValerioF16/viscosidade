@@ -99,10 +99,10 @@ function MonometroApp() {
           {errorMesage && <p >{errorMesage.error}</p>}
           {result && (
         <>
-            <p>Altura A = {result.Altura_PA?.toFixed(2)}</p>
-            <p>Altura B = {result.Altura_PB?.toFixed(2)}</p>
-            <p>Diferença de altura = {result.DifAltura?.toFixed(2)}</p>
-            <p> Presão = {result.pressure?.toFixed(2)}</p>
+            <p>Altura 1 = {result.Altura_PB? `${result.Altura_PB.toFixed(4)} m` : ''}</p>
+            <p>Altura 2 = {result.Altura_PA? `${result.Altura_PA.toFixed(4)} m` : ''}</p>           
+            <p>Diferença de altura = {result.DifAltura? `${result.DifAltura.toFixed(4)} m` : ''}</p>
+            <p> Presão = {result.pressure? `${result.pressure.toFixed(3)} Pa` : ''}</p>
             
         </>
            )}

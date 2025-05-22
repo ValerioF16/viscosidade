@@ -142,28 +142,15 @@ function Teste() {
                 <div className={styleT.containerPai}>
                     <div className={styleT.imagEconteudo}>
                     <div className= {styleT.conteudo} data-aos="faderight">
-                    <h1>Cenário Industrial: Monitoramento da Variação de <br/> Pressão em um Tanque de Suprimento de Oxigênio:
+                    <h1>Cenário Industrial: Monometro em U <br/> 
 
 </h1>
-                    <p>Em uma instalação de soldagem de precisão, um tanque compacto de oxigênio de alta pressão é usado para operações de soldagem móveis. 
-                        Entender como a pressão interna do tanque varia com a temperatura é fundamental para garantir a segurança em diferentes condições ambientais e operacionais — especialmente quando o tanque é transportado entre locais de trabalho internos e externos.
-                         
-
-                    </p>
-                    <br/>
-                    
-                    <p>O tanque tem um volume de 0,12 metros cúbicos e é inicialmente preenchido com oxigênio a uma pressão absoluta de 8 MPa e a uma temperatura de 20 °C. 
-                        Para auxiliar a análise de segurança e o projeto do sistema, os engenheiros precisam prever como a pressão dentro do tanque muda com o aumento da temperatura.</p>
-                    <br/>
-                    <p> Como engenheiro de controle de processos, trace a variação da pressão (eixo vertical) em função da temperatura dentro do tanque durante os primeiros 10 minutos de injeção de gás. 
-                        Suponha que a temperatura aumente proporcionalmente com a pressão devido aos efeitos de compressão e aquecimento.
-                       </p>
                        <br />
                        <br />
                        <div className={styleT.botaoConteudo}>
                         <Link to={"/monometro"} >
                         <button className={styleT.estiloBotao}>
-                            <strong>Gráfico</strong> <br />
+                            <strong>Detectar</strong> <br />
                             
                         </button>
                         </Link>
