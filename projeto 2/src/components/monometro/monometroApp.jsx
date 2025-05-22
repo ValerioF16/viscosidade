@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 
 function MonometroApp() {
-  const [pa, setPA] = useState(""); // Pressão no Ponto A
-  const [pb, setPB] = useState(''); // Pressão no Ponto B
-  const [t, setT] = useState(''); // Tamanho do braço
+
   const [imageLoad, setImageLoad] = useState(null); // Imagem a ser carregada
   const [result, setResult] = useState(null)
   const [isloading, setIsloading] = useState(false)
@@ -15,28 +13,11 @@ function MonometroApp() {
 
   // Função de cálculo
   const handleCalculate = async () => {
-    // Tratamento das variáveis
-    
-    const paNum = parseFloat(pa);
-    const pbNum = parseFloat(pb);
-    const tNum = parseFloat(t);
-    
-
-    if (isNaN(paNum) || isNaN(pbNum) || isNaN(tNum)) {
-      alert('Por favor, insira valores numéricos para todos os parâmetros.');
-      return;
-    }
-
-    if (tNum === 0) {
-      alert("O braço do monômetro não pode ser zero");
-      return;
-    }
+  
 
     // Criar FormData para enviar os dados e a imagem
     const formData = new FormData();
-    formData.append('pa', paNum);
-    formData.append('pb', pbNum);
-    formData.append('t', tNum);
+    
     if (imageLoad) {
       formData.append('image', imageLoad);
     }
@@ -69,9 +50,7 @@ function MonometroApp() {
   };
 
   const handleClear = () => {
-    setPA('');
-    setPB('');
-    setT('');
+  
     setImageLoad(null);
     setResult(null);
     setErrorMesage(null)
@@ -95,39 +74,7 @@ function MonometroApp() {
         </header>
         <section className={styleP.inputsP}>
           <h2>Parâmetros de Entrada</h2>
-          <div>
-            <label>
-              Pressão no Ponto A (Pa) <span title="Insira a pressão no ponto A">?</span>
-            </label>
-            <input
-              type="number"
-              value={pa}
-              onChange={(e) => setPA(e.target.value)}
-              step="any"
-            />
-          </div>
-          <div>
-            <label>
-              Pressão no Ponto B (Pa) <span title="Insira a pressão no ponto B">?</span>
-            </label>
-            <input
-              type="number"
-              value={pb}
-              onChange={(e) => setPB(e.target.value)}
-              step="any"
-            />
-          </div>
-          <div>
-            <label>
-              Tamanho do braço (m) <span title="Insira o tamanho do braço">?</span>
-            </label>
-            <input
-              type="number"
-              value={t}
-              onChange={(e) => setT(e.target.value)}
-              step="any"
-            />
-          </div>
+    
           <div>
             <label>
               Upload da foto (png) <span title="Insira a foto do monômetro">?</span>
@@ -154,7 +101,9 @@ function MonometroApp() {
         <>
             <p>Altura A = {result.Altura_PA?.toFixed(2)}</p>
             <p>Altura B = {result.Altura_PB?.toFixed(2)}</p>
-            <p>Diferença = {result.pressure?.toFixed(2)}</p>
+            <p>Diferença de altura = {result.DifAltura?.toFixed(2)}</p>
+            <p> Presão = {result.pressure?.toFixed(2)}</p>
+            
         </>
            )}
         </section>
